@@ -28,7 +28,7 @@ CREATE DATABASE regifter;
 
 
 -- 
-\echo Insert a peach candle, given by 'Santa' thats value is 9 and has been previously regifted
+\echo Insert a peach candle, given by 'Santa' thats price is 9 and has been previously regifted
 -- 
 
 
@@ -41,7 +41,7 @@ CREATE DATABASE regifter;
 \echo Uncomment below to insert 5 more gifts
 -- 
 
--- INSERT INTO gifts (gift, giver, value, previously_regifted)
+-- INSERT INTO gifts (gift, giver, price, previously_regifted)
 -- VALUES
 -- ('peach candle', 'Santa', '9', TRUE),
 -- ('cinnamon candle', 'Nick', '19', TRUE),
@@ -67,7 +67,7 @@ CREATE DATABASE regifter;
 
 
 --
-\echo Query for every gift whose giver is Santa OR value is greater than 30
+\echo Query for every gift whose giver is Santa OR price is greater than 30
 --
 
 
@@ -77,7 +77,7 @@ CREATE DATABASE regifter;
 
 
 --
-\echo Update the second gift to have a value of 2999
+\echo Update the second gift to have a price of 2999
 -- 
 
 
@@ -87,7 +87,7 @@ CREATE DATABASE regifter;
 
 
 --
-\echo Delete all the gifts from Santa and return the 'value' and 'gift' of the gift you have deleted
+\echo Delete all the gifts from Santa and return the 'price' and 'gift' of the gift you have deleted
 --
 
 
@@ -105,7 +105,7 @@ CREATE DATABASE regifter;
 
 
 --
-\echo Get the AVEREAGE value from all the gifts
+\echo Get the AVEREAGE price from all the gifts
 --
 
 
