@@ -23,7 +23,7 @@ CREATE DATABASE regifter;
 
 
 -- 
-\echo Alter the table so that the column price is changed to value 
+\echo Alter the table so that the column value is changed to price 
 -- 
 
 
