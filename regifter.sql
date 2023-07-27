@@ -43,7 +43,7 @@ INSERT INTO gifts (gift, giver, price, previously_regifted) VALUES ('peach candl
 \echo Query for all the columns in your gifts table
 -- 
 
- SELECT * FROM gifts;
+SELECT * FROM gifts;
 --  id |     gift     | giver | price | previously_regifted
 -- ----+--------------+-------+-------+---------------------
 --   1 | peach candle | Santa |     9 | t
@@ -105,7 +105,7 @@ SELECT * FROM gifts WHERE price >= 20;
 --
 \echo Query for every gift that has the word candle in it, only show the gift column
 --
- SELECT gift FROM gifts WHERE gift like '%candle%';
+SELECT gift FROM gifts WHERE gift like '%candle%';
 --       gift
 -- -----------------
 --  peach candle
@@ -118,7 +118,7 @@ SELECT * FROM gifts WHERE price >= 20;
 --
 \echo Query for every gift whose giver is Santa OR price is greater than 30
 --
- SELECT * FROM gifts WHERE giver LIKE 'Santa' OR price > 30;
+SELECT * FROM gifts WHERE giver LIKE 'Santa' OR price > 30;
 --  id |     gift     |      giver       | price | previously_regifted
 -- ----+--------------+------------------+-------+---------------------
 --   1 | peach candle | Santa            |     9 | t
@@ -152,7 +152,7 @@ SELECT * FROM gifts WHERE giver != 'Santa';
 
 UPDATE gifts SET price = 2999 WHERE id = 4;
 
- SELECT * FROM gifts;
+SELECT * FROM gifts;
 --  id |         gift          |      giver       | price | previously_regifted
 -- ----+-----------------------+------------------+-------+---------------------
 --   1 | peach candle          | Santa            |     9 | t
@@ -170,7 +170,7 @@ UPDATE gifts SET price = 2999 WHERE id = 4;
 -- --
 \echo Query for the updated item
 --
- SELECT * FROM gifts WHERE price = 2999;
+SELECT * FROM gifts WHERE price = 2999;
 --  id |     gift     | giver | price | previously_regifted
 -- ----+--------------+-------+-------+---------------------
 --   4 | peach candle | Santa |  2999 | t
@@ -179,7 +179,7 @@ UPDATE gifts SET price = 2999 WHERE id = 4;
 --
 \echo Delete all the gifts from Santa and return the 'price' and 'gift' of the gift you have deleted
 --
- DELETE FROM gifts WHERE giver = 'Santa' RETURNING price, gift;
+DELETE FROM gifts WHERE giver = 'Santa' RETURNING price, gift;
 --  price |     gift
 -- -------+--------------
 --      9 | peach candle
@@ -193,7 +193,7 @@ UPDATE gifts SET price = 2999 WHERE id = 4;
 \echo Query for all the columns in your gifts table one more time
 --
 
- SELECT * FROM gifts;
+SELECT * FROM gifts;
 --  id |         gift          |      giver       | price | previously_regifted
 -- ----+-----------------------+------------------+-------+---------------------
 --   5 | cinnamon candle       | Nick             |    19 | t
@@ -211,7 +211,7 @@ UPDATE gifts SET price = 2999 WHERE id = 4;
 --
  \echo Count the total number of gifts that have the word candle in it
 -- 
- SELECT COUNT(gift) FROM gifts WHERE gift LIKE '%candle%';
+SELECT COUNT(gift) FROM gifts WHERE gift LIKE '%candle%';
 --  count
 -- -------
 --      2
@@ -221,11 +221,18 @@ UPDATE gifts SET price = 2999 WHERE id = 4;
 \echo Get the AVEREAGE price from all the gifts
 --
 
-
+SELECT AVG(price) FROM gifts;
+-- 
 -- 
  \echo Limit to 3 gifts, offset by 2 and order by price descending
 --
-
+SELECT gifts FROM gifts ORDER BY price ASC LIMIT 3 OFFSET 2;
+--                   gifts
+-- ------------------------------------------
+--  (11,"Bath & Body Works Set",Rudolf,29,f)
+--  (6,"soap on a rope",Rudolf,29,f)
+--  (7,potpurri,"Elf on the Shelf",39,t)
+-- (3 rows)
 --
 -- finish
 --
